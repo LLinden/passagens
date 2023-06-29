@@ -21,18 +21,13 @@ describe("Passagens", () => {
         }
       });
     });
+    cy.get(el.menorPreco)
+      .invoke("text")
+      .then((text) => {
+        cy.wrap(text).as("menor");
+        cy.log("@menor");
+      });
   });
 
-  it("deve capturar menor preço ", () => {
-    cy.get(el.menorPreco).click();
-    cy.get(el.menorPreco).invoke("text").as("menor");
-    cy.get("@menor").then(() => {
-      cy.log("MENOR VALOR: " + menor);
-    });
-
-    // cy.get(el.menorPreco).find(el.menorPrecoValor).invoke("val").as("menor");
-    // cy.get("@menor").then((menor) => {
-    //   cy.log("MENOR VALOR: " + menor);
-    // });
-  });
+  it("deve capturar menor preço ", () => {});
 });
